@@ -1,0 +1,15 @@
+[submodule "lib/VIAlertView"]
+	path = lib/VIAlertView
+	url = git://github.com/vokalinteractive/VIAlertView.git
+[submodule "lib/VILoadingDialog"]
+	path = lib/VILoadingDialog
+	url = git://github.com/vokalinteractive/VILoadingDialog.git
+[submodule "lib/VILoaderImage"]
+	path = lib/VILoaderImage
+url=https://github.com/MattFoley/VILoaderImageView.git
+[submodule "GPUImage"]
+	path = GPUImage
+	url = https://github.com/BradLarson/GPUImage.git
+[submodule "DEStoreKit"]
+	path = DEStoreKit
+	url = https://github.com/MattFoley/DEStoreKitManager.git

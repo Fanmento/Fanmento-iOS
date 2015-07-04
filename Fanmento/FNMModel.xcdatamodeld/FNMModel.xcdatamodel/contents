@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="FinalPicture" representedClassName="FinalPicture" syncable="YES">
+        <attribute name="background" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cClientName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cFacebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="cTwitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="uri" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="FNMTemplate" representedClassName="FNMTemplate" syncable="YES">
+        <attribute name="cActiveDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="cAdTarget" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cAdURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cBackground" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cClientName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cEffect" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="cEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cExpiryDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="cFacebook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="cIsNearby" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="cIsPremium" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="cIsPurchased" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="cLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cPrice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cProductIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cRemoteURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cStatus" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="cTwitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cVenue" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="FNMUser" representedClassName="FNMUser" syncable="YES">
+        <attribute name="cEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cFBToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cUserId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="FNMVenue" representedClassName="FNMVenue" syncable="YES">
+        <attribute name="cAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cEndDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="cId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cLatitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="cLongitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="cName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cStartDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="FinalPicture" positionX="-0" positionY="-0" width="128" height="193"/>
+        <element name="FNMTemplate" positionX="216" positionY="-0" width="128" height="418"/>
+        <element name="FNMUser" positionX="-216" positionY="-0" width="128" height="120"/>
+        <element name="FNMVenue" positionX="430" positionY="-0" width="128" height="150"/>
+    </elements>
+</model>

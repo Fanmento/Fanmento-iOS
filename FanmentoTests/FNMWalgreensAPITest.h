@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WAG_CheckoutContext.h"
-#import "WAG_ImageData.h"
+#import "WalgreensQPSDK/WalgreensQPSDK.h"
 
 @protocol FNMWalgreensAPITestDelegate
 - (void)failedAuthentication;
@@ -16,7 +15,7 @@
 - (void)failedPostCart;
 @end
 
-@interface FNMWalgreensAPITest : NSObject <CheckoutDelegate>
+@interface FNMWalgreensAPITest : NSObject <WAGCheckoutDelegate>
 {
     id delegate;
 }

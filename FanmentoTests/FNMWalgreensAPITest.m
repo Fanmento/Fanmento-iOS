@@ -11,7 +11,7 @@
 
 @interface FNMWalgreensAPITest ()
 
-@property(strong, nonatomic) WAG_CheckoutContext *checkouSDK;
+@property(strong, nonatomic) WalgreensQPSDK *checkouSDK;
 @end
 
 @implementation FNMWalgreensAPITest
@@ -21,9 +21,9 @@
 
 -(void)walgreeDLogin:(NSString*)apiKey
 {
-    checkouSDK = [[WAG_CheckoutContext alloc] initWithAffliateId:CHECKOUT_ACCESS_KEY apiKey:apiKey
-                                                     environment:ENVIRONMENT appVersion:APP_VERSION
-                                                  ProductGroupID:PRODUCT_GROUP_ID PublisherID:PUBLISHER_ID];
+    checkouSDK = [[WalgreensQPSDK alloc] initWithAffliateId:WALGREENS_CHECKOUT_ACCESS_KEY apiKey:apiKey
+                                                     environment:WALGREENS_ENVIRONMENT appVersion:WALGREENS_APP_VERSION
+                                                  ProductGroupID:WALGREENS_PRODUCT_GROUP_ID PublisherID:WALGREENS_PUBLISHER_ID];
     checkouSDK.delegate = self;
 }
 
@@ -77,13 +77,13 @@
 
 
 // New delegate methods support both single and multiple image upload
--(void) imageuploadSuccessWithImageData:(WAG_ImageData *)imageData
+-(void) imageuploadSuccessWithImageData:(WAGImageData *)imageData
 {
     DLog(@"WAG TEST: Succesful Image Upload");
     //[checkouSDK postCart];
 }
 
--(void) imageuploadErrorWithImageData:(WAG_ImageData *)imageData  Error:(NSError *)error
+-(void) imageuploadErrorWithImageData:(WAGImageData *)imageData  Error:(NSError *)error
 {
     DLog(@"WAG TEST: Failed Image Upload");
     [delegate failedImageUpload];

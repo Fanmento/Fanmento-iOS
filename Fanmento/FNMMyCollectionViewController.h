@@ -10,8 +10,7 @@
 #import "FNMMyCollectionShareToolBar.h"
 #import "FNMFinalPictureDataSource.h"
 #import "FNMCustomGalleryCell.h"
-#import "WAG_CheckoutContext.h"
-#import "WAG_ImageData.h"
+#import "WalgreensQPSDK/WalgreensQPSDK.h"
 #import <MessageUI/MessageUI.h>
 #import "VILoaderImageView.h"
 #import "MBProgressHUD.h"
@@ -20,7 +19,7 @@
 
 @interface FNMMyCollectionViewController : UIViewController <FNMMyCollectionShareToolBarDelegate,
                                                              FNMCustomGalleryCellDelegate,
-                                                             CheckoutDelegate,
+                                                             WAGCheckoutDelegate,
                                                              MFMailComposeViewControllerDelegate,
                                                              NSFetchedResultsControllerDelegate,
                                                              UIActionSheetDelegate>

@@ -16,12 +16,12 @@
 #define  API_USERS              @"user/"
 #define  API_COLLECTION         @"image/"
 
-//#define  BASE_URL               @"http://fanmento-staging.appspot.com/api/"
+#define  BASE_URL               @"http://fanmento-staging.appspot.com/api/"
 //#define  API_IMAGE_FORMAT       @"http://fanmento-staging.appspot.com/api/v1/templates/template/%@/image"
 //#define  API_AD_FORMAT          @"http://fanmento-staging.appspot.com/api/v1/templates/ad/%@/image"
 
 // THESE LINES SHOULD NOT BE COMMITTED IF CHANGED
-#define  BASE_URL               @"http://mobile.fanmento.com/api/"
+//#define  BASE_URL               @"http://mobile.fanmento.com/api/"
 
 #define  API_TEMPLATES          @"templates/"
 #define  API_CATEGORY           @"category/"

@@ -19,9 +19,9 @@
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
-#import <BugSense-iOS/BugSenseController.h>
+//#import <BugSense-iOS/BugSenseController.h>
 
-#import "GANTracker.h"
+//#import "GANTracker.h"
 #import "Constant.h"
 
 #import "FNMAPI_Templates.h"
@@ -105,7 +105,7 @@ static const NSInteger kGANDispatchPeriodSec = 10;
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [[GANTracker sharedTracker] stopTracker];
+    //[[GANTracker sharedTracker] stopTracker];
 }
 
 + (FNMAppDelegate *)appDelegate
@@ -115,7 +115,7 @@ static const NSInteger kGANDispatchPeriodSec = 10;
 
 - (void)setupGan
 {
-    [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-34286983-1"
+    /*[[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-34286983-1"
                                            dispatchPeriod:kGANDispatchPeriodSec
                                                  delegate:nil];
 
@@ -130,12 +130,12 @@ static const NSInteger kGANDispatchPeriodSec = 10;
                                      value:-1
                                  withError:nil];
 
-    [self trackPageViewWithName:@"/app_entry_point"];
+    [self trackPageViewWithName:@"/app_entry_point"];*/
 }
 
 - (void)trackPageViewWithName:(NSString *)pageView
 {
-    [[GANTracker sharedTracker] trackPageview:pageView withError:nil];
+    //[[GANTracker sharedTracker] trackPageview:pageView withError:nil];
 }
 
 - (void)setupTabBarController

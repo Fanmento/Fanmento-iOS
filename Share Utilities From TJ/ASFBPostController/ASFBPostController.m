@@ -11,7 +11,7 @@
 #define FB_EXPIRATION_DATE    @"FBExpirationDateKey"
 #define FB_LOGINNAME          @"FBLoginName"
 
-#import "GANTracker.h"
+//#import "GANTracker.h"
 #import "ASFBPostController.h"
 #import "FBConnect.h"
 #import "ASColor+Hex.h"
@@ -417,10 +417,10 @@
 
 -(void)trackNameAndToken
 {
-    [[GANTracker sharedTracker] setCustomVariableAtIndex:5
-                                                    name:self.loginName
-                                                   value:[[NSUserDefaults standardUserDefaults] objectForKey:FB_ACCESS_TOKEN]
-                                               withError:nil];
+    //[[GANTracker sharedTracker] setCustomVariableAtIndex:5
+      //                                              name:self.loginName
+        //                                           value:[[NSUserDefaults standardUserDefaults] objectForKey:FB_ACCESS_TOKEN]
+          //                                     withError:nil];
 }
 
 - (void)loading:(BOOL)isLoading{

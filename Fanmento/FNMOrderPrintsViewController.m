@@ -32,7 +32,7 @@
 @property (assign, nonatomic) NSInteger totalImages;
 @property (assign, nonatomic) NSInteger assetsUploaded;
 
-@property (strong, nonatomic) WAG_CheckoutContext *walgreensCheckoutContext;
+@property (strong, nonatomic) WalgreensQPSDK *walgreensCheckoutContext;
 @property (strong, nonatomic) NSMutableString *walgreensAffiliateNotes;
 
 @property (assign, nonatomic) NSInteger currentPage;
@@ -46,7 +46,7 @@
     [super viewDidLoad];
 
     UIImageView *baseBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Fanmento_Grey_Background"]];
-    baseBG.Frame = CGRectMake(0, 0, 320, screenHeight());
+    baseBG.frame = CGRectMake(0, 0, 320, screenHeight());
     [self.view addSubview:baseBG];
 
     self.topBar = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shopping-screen_topbar"]];
@@ -96,12 +96,13 @@
     }
 
     if(self.walgreensCheckoutContext == nil) {
-        self.walgreensCheckoutContext = [[WAG_CheckoutContext alloc] initWithAffliateId:WALGREENS_CHECKOUT_ACCESS_KEY
+        self.walgreensCheckoutContext = [[WalgreensQPSDK alloc] initWithAffliateId:WALGREENS_CHECKOUT_ACCESS_KEY
                                                                                  apiKey:WALGREENS_CHECKOUT_API_KEY
                                                                             environment:WALGREENS_ENVIRONMENT
                                                                              appVersion:WALGREENS_APP_VERSION
                                                                          ProductGroupID:WALGREENS_PRODUCT_GROUP_ID
-                                                                            PublisherID:WALGREENS_PUBLISHER_ID];
+                                                                            PublisherID:WALGREENS_PUBLISHER_ID
+                                         success:nil failure:nil];
         self.walgreensCheckoutContext.delegate = self;
     }
 }
@@ -234,7 +235,7 @@
 
             if (imageNumbers.count > 0) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image 1 of %i", self.totalImages];
+                    self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image 1 of %i", (int)self.totalImages];
                     [self.hud setMode:MBProgressHUDModeDeterminate];
                     [self.hud show:YES];
                     [[FNMAppDelegate appDelegate] disableTabBar];
@@ -267,19 +268,19 @@
                     } else {
                         imagesNeedingDownloaded++;
 
-                        [manager downloadWithURL:imageToUpload
+                        [manager downloadImageWithURL:imageToUpload
                                          options:0
-                                        progress:^(NSUInteger receivedSize, long long expectedSize)
+                                        progress:^(NSInteger receivedSize, NSInteger expectedSize)
                          {
                              CGFloat receivedSizeFloat = receivedSize;
                              CGFloat percent = expectedSize/receivedSizeFloat;
 
                              [self.hud setProgress:percent];
-                         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *url) {
                              imageBeingGrabbed++;
                              if (image && finished) {
                                  dispatch_async(dispatch_get_main_queue(), ^{
-                                     self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image %i of %i", imageBeingGrabbed, self.totalImages];
+                                     self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image %i of %i", (int)imageBeingGrabbed, (int)self.totalImages];
                                  });
 
                                  [self.imagesToUpload addObject:UIImageJPEGRepresentation(image, 1.0)];
@@ -329,8 +330,8 @@
             self.hud.progress = 0.0f;
             self.hud.mode = MBProgressHUDModeDeterminate;
 
-            NSLog(@"Currently have %d items in imagesToUpload", self.imagesToUpload.count);
-            [self.walgreensCheckoutContext upload:[self.imagesToUpload objectAtIndex:0]];
+            NSLog(@"Currently have %d items in imagesToUpload", (int)self.imagesToUpload.count);
+            [self.walgreensCheckoutContext upload:[self.imagesToUpload objectAtIndex:0] progressBlock:nil successBlock:nil failureBlock:nil];
         } else {
             [[FNMAppDelegate appDelegate] enableTabBar];
             [self.hud hide:YES];
@@ -376,7 +377,7 @@
  */
 
 // New delegate methods support both single and multiple image upload
--(void)imageuploadSuccessWithImageData:(WAG_ImageData *)imageData
+-(void)imageuploadSuccessWithImageData:(WAGImageData *)imageData
 {
     DLog(@"WAG: Succesful Image Upload");
 
@@ -392,13 +393,13 @@
         if(self.walgreensAffiliateNotes.length > 0) {
             [self.walgreensCheckoutContext setAffNotes:self.walgreensAffiliateNotes];
         }
-        [self.walgreensCheckoutContext postCart];
+        [self.walgreensCheckoutContext postCart:nil failure:nil];
     } else {
-        [self.walgreensCheckoutContext upload:[self.imagesToUpload objectAtIndex:0]];
+        [self.walgreensCheckoutContext upload:[self.imagesToUpload objectAtIndex:0] progressBlock:nil successBlock:nil failureBlock:nil];
     }
 }
 
--(void)imageuploadErrorWithImageData:(WAG_ImageData *)imageData  Error:(NSError *)error
+-(void)imageuploadErrorWithImageData:(WAGImageData *)imageData  Error:(NSError *)error
 {
     DLog(@"WAG: Failed Image Upload %@", [error description]);
     self.hud.detailsLabelText = @"";
@@ -482,7 +483,7 @@
     NSArray *imageNumbers = self.imagePickerController.overviewController.multiImageArray;
 
     if (imageNumbers.count > 0) {
-        self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image 1 of %i", imageNumbers.count];
+        self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image 1 of %i", (int)imageNumbers.count];
         self.hud.mode = MBProgressHUDModeDeterminate;
         [self.hud show:YES];
         [[FNMAppDelegate appDelegate] disableTabBar];
@@ -506,14 +507,14 @@
                     [self displayFujiCheckout];
                 }
             } else {
-                [manager downloadWithURL:imageToUpload
+                [manager downloadImageWithURL:imageToUpload
                                  options:0
-                                progress:^(NSUInteger receivedSize, long long expectedSize) {
+                                progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                                     CGFloat receivedSizeFloat = receivedSize;
                                     CGFloat percent = expectedSize / receivedSizeFloat;
 
                                     [self.hud setProgress:percent];
-                                } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                                } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *url) {
                                     imageBeingGrabbed++;
                                     if (image && finished) {
                                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -522,7 +523,7 @@
                                             if(self.imagesToUpload.count == imageNumbers.count) {
                                                 [self displayFujiCheckout];
                                             } else {
-                                                self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image %i of %i", imageBeingGrabbed, imageNumbers.count];
+                                                self.hud.detailsLabelText = [NSString stringWithFormat:@"Grabbing Image %i of %i", (int)imageBeingGrabbed, (int)imageNumbers.count];
                                             }
                                         });
                                     }

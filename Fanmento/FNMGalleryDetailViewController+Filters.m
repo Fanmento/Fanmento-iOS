@@ -20,7 +20,7 @@
         {
             
             filter = (GPUImageFilter*)[[GPUImageAdaptiveThresholdFilter alloc]init];
-            [(GPUImageAdaptiveThresholdFilter*)filter setBlurSize:fnmAdaptiveFilterValue];
+            [(GPUImageAdaptiveThresholdFilter*)filter setBlurRadiusInPixels:fnmAdaptiveFilterValue];
             
             break;
         }
@@ -92,7 +92,7 @@
         case fnmFilterToon:
         {
             filter = (GPUImageFilter*)[[GPUImageSmoothToonFilter alloc]init];
-            [(GPUImageSmoothToonFilter*)filter setBlurSize:.5];
+            [(GPUImageSmoothToonFilter*)filter setBlurRadiusInPixels:.5];
             break;
         }
             

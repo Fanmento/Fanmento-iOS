@@ -114,7 +114,7 @@
 //TS1.11 Walgreens API Image Upload Failure
 -(void)test02WalgreensAPIFailImageUpload
 {
-    [walgreensApiTest walgreensLogin:CHECKOUT_API_KEY];//login sucessfully
+    [walgreensApiTest walgreensLogin:WALGREENS_CHECKOUT_API_KEY];//login sucessfully
     [FanmentoTests waitForCompletion:10];
     [walgreensApiTest walgreensImageUpload];
     [FanmentoTests waitForCompletion:10];
@@ -124,7 +124,7 @@
 //TS1.12 Walgreens API Failure: posting cart
 -(void)test03WalgreensAPIFailPostingCart
 {
-    [walgreensApiTest walgreensLogin:CHECKOUT_API_KEY];//login sucessfully
+    [walgreensApiTest walgreensLogin:WALGREENS_CHECKOUT_API_KEY];//login sucessfully
     [FanmentoTests waitForCompletion:10];
     [walgreensApiTest walgreensPostCart];
     [FanmentoTests waitForCompletion:10];

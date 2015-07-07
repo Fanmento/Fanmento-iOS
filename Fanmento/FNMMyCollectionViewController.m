@@ -45,7 +45,7 @@
 
 @property (strong, nonatomic) FNMMyCollectionShareToolBar *shareToolbar;
 
-@property (strong, nonatomic) WAG_CheckoutContext *walgreensCheckoutContext;
+@property (strong, nonatomic) WalgreensQPSDK *walgreensCheckoutContext;
 
 @property (assign, nonatomic) BOOL isCurling;
 @property (assign, nonatomic) BOOL isSharing;
@@ -187,12 +187,13 @@
     }
 
     if(self.walgreensCheckoutContext == nil) {
-        self.walgreensCheckoutContext = [[WAG_CheckoutContext alloc] initWithAffliateId:WALGREENS_CHECKOUT_ACCESS_KEY
+        self.walgreensCheckoutContext = [[WalgreensQPSDK alloc] initWithAffliateId:WALGREENS_CHECKOUT_ACCESS_KEY
                                                                                  apiKey:WALGREENS_CHECKOUT_API_KEY
                                                                             environment:WALGREENS_ENVIRONMENT
                                                                              appVersion:WALGREENS_APP_VERSION
                                                                          ProductGroupID:WALGREENS_PRODUCT_GROUP_ID
-                                                                            PublisherID:WALGREENS_PUBLISHER_ID];
+                                                                            PublisherID:WALGREENS_PUBLISHER_ID
+                                         success:nil failure:nil];
         self.walgreensCheckoutContext.delegate = self;
     }
 }
@@ -641,7 +642,7 @@
             if(self.selectedClientName.length > 0) {
                 [self.walgreensCheckoutContext setAffNotes:self.selectedClientName];
             }
-            [self.walgreensCheckoutContext upload:UIImageJPEGRepresentation(self.selectedPicture, 1.0)];
+            [self.walgreensCheckoutContext upload:UIImageJPEGRepresentation(self.selectedPicture, 1.0) progressBlock:nil successBlock:nil failureBlock:nil];
         } else {
             [[[FNMAlertView alloc] initWithTitle:@"Unavailable"
                                          message:@"Unable to connect to Walgreens Checkout, return to this view later to retry"
@@ -745,14 +746,14 @@
 
 
 // New delegate methods support both single and multiple image upload
-- (void)imageuploadSuccessWithImageData:(WAG_ImageData *)imageData
+- (void)imageuploadSuccessWithImageData:(WAGImageData *)imageData
 {
     DLog(@"WAG: Succesful Image Upload");
     self.hud.labelText = @"Upload Successful";
-    [self.walgreensCheckoutContext postCart];
+    [self.walgreensCheckoutContext postCart:nil failure:nil];
 }
 
-- (void)imageuploadErrorWithImageData:(WAG_ImageData *)imageData  Error:(NSError *)error
+- (void)imageuploadErrorWithImageData:(WAGImageData *)imageData  Error:(NSError *)error
 {
     DLog(@"WAG: Failed Image Upload");
     self.hud.labelText = @"Walgreens: Image Upload Failed";

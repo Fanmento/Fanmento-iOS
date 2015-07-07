@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "JPImagePickerController.h"
-#import "WAG_CheckoutContext.h"
-#import "WAG_ImageData.h"
+#import "WalgreensQPSDK/WalgreensQPSDK.h"
 #import "Fujifilm.WebViewController.h"
 #import "FNMFinalPictureDataSource.h"
 
 @interface FNMOrderPrintsViewController : UIViewController <JPImagePickerControllerDataSource,
                                                             JPImagePickerControllerDelegate,
-                                                            CheckoutDelegate,
+                                                            WAGCheckoutDelegate,
                                                             NSFetchedResultsControllerDelegate,
                                                             UIActionSheetDelegate>
 

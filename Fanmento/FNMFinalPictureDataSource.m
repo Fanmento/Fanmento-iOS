@@ -107,7 +107,7 @@ dispatch_queue_t imageDownloadQueue;
         });
     }else{
         __block UIImageView* imageViewBlock = imageView;
-        [imageView setImageWithURL:[params objectForKey:@"uri"] placeholderImage:[UIImage imageNamed:@"bg_blank_for_pics.png"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        [imageView sd_setImageWithURL:[params objectForKey:@"uri"] placeholderImage:[UIImage imageNamed:@"bg_blank_for_pics.png"] options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *url) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [UIView animateWithDuration:.3 animations:^{
                     [imageViewBlock setAlpha:1];
@@ -123,8 +123,8 @@ dispatch_queue_t imageDownloadQueue;
 
 - (void)cancelCell:(UITableViewCell*)cell
 {
-    [(VILoaderImageView*)[cell viewWithTag:2] cancelCurrentImageLoad];
-    [(VILoaderImageView*)[cell viewWithTag:1] cancelCurrentImageLoad];
+    [(VILoaderImageView*)[cell viewWithTag:2] sd_cancelCurrentImageLoad];
+    [(VILoaderImageView*)[cell viewWithTag:1] sd_cancelCurrentImageLoad];
     NSMutableString *cancel = objc_getAssociatedObject(cell, (const void*)0x315);
     [cancel setString:@""];
 }

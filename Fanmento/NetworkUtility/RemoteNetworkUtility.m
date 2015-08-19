@@ -34,7 +34,7 @@
         url = [NSString stringWithFormat:@"%@?%@", url, [RemoteNetworkUtility getStringForParameters:params]];
     }
 #if DEBUG    
-    NSLog(@"Making request: %@",url);
+    NSLog(@"Making GET request: %@",url);
 #endif    
     NSMutableURLRequest *request = [self createRequest:url];
     
@@ -46,7 +46,7 @@
 - (ResponseData *)post:(NSString *)url withParameters:(NSDictionary *)params authenticate:(BOOL)authenticate error:(NSError *)error
 {
 #if DEBUG    
-    NSLog(@"Making request: %@ params: %@",url,params);
+    NSLog(@"Making POST request: %@ params: %@",url,params);
 #endif    
     NSMutableURLRequest *request = [self createRequest:url];
     if (params != nil) {
@@ -60,7 +60,7 @@
 - (ResponseData *)put:(NSString *)url withParameters:(NSDictionary *)params authenticate:(BOOL)authenticate error:(NSError *)error
 {
 #if DEBUG    
-    NSLog(@"Making request: %@ params: %@",url,params);
+    NSLog(@"Making PUT request: %@ params: %@",url,params);
 #endif    
     NSMutableURLRequest *request = [self createRequest:url];
     if (params != nil) {
@@ -75,7 +75,7 @@
 - (ResponseData *)delete:(NSString *)url withParameters:(NSDictionary *)params authenticate:(BOOL)authenticate error:(NSError *)error
 {
 #if DEBUG    
-    NSLog(@"Making request: %@ params: %@",url,params);
+    NSLog(@"Making DELETE request: %@ params: %@",url,params);
 #endif    
     NSMutableURLRequest *request = [self createRequest:url];
     if (params != nil) {
@@ -191,7 +191,7 @@
 - (ResponseData *)post:(NSString *)url withParameters:(NSDictionary *)params image:(UIImage*)image withName:(NSString*)name authenticate:(BOOL)authenticate error:(NSError *)error
 {
 #if DEBUG
-    NSLog(@"Making request: %@",url);
+    NSLog(@"Making POST request: %@",url);
 #endif
     NSString *boundary = @"----------V2ymHFg03ehbqgZCaKO6jy";
     NSMutableURLRequest *request = [self createRequest:url];
@@ -231,7 +231,7 @@
 - (ResponseData *)postForHttp:(NSString *)url withParameters:(NSDictionary *)params authenticate:(BOOL)authenticate error:(NSError *)error
 {
 #if DEBUG
-    NSLog(@"Making request: %@",url);
+    NSLog(@"Making POST FOR HTTP request: %@",url);
 #endif
     NSString *boundary = @"----------V2ymHFg03ehbqgZCaKO6jy";
     NSMutableURLRequest *request = [self createRequest:url];

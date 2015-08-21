@@ -256,7 +256,7 @@
 - (void)fbLogin{
     [self createFbInstance];
     
-    NSArray *permissions = [[NSArray alloc] initWithObjects:@"publish_stream", nil];
+    NSArray *permissions = [[NSArray alloc] initWithObjects:@"publish_actions", nil];
     [self.facebook authorize:permissions];
     [permissions release];
 }
@@ -366,7 +366,15 @@
     if([request.url isEqual:@"https://graph.facebook.com/me/permissions"]){
         NSArray *data = [((NSDictionary *)result) objectForKey:@"data"];
         if(data.count > 0){
-            int isPermitted = [[(NSDictionary *)[data objectAtIndex:0] objectForKey:@"publish_stream"] intValue];
+            //int isPermitted = [[(NSDictionary *)[data objectAtIndex:0] objectForKey:@"publish_actions"] intValue];
+            BOOL isPermitted = YES;
+            for (NSDictionary* dictionary in data){
+                NSString* status = (NSString*)[dictionary objectForKey:@"status"];
+                if(![status isEqualToString:@"granted"]){
+                    isPermitted = NO;
+                    break;
+                }
+            }
             if(!isPermitted){
                 UIAlertView *alert = [[UIAlertView alloc] 
                                       initWithTitle:@""

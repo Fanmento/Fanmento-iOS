@@ -51,9 +51,9 @@ static const NSInteger kGANDispatchPeriodSec = 10;
 
     //bugsense
 #ifndef DEBUG
-    [BugSenseController sharedControllerWithBugSenseAPIKey:BUG_SENSE_API_KEY
-                                            userDictionary:@{BUG_SENSE_API_KEY: @"Fanmento-iOS"}
-                                           sendImmediately:NO];
+//    [BugSenseController sharedControllerWithBugSenseAPIKey:BUG_SENSE_API_KEY
+  //                                          userDictionary:@{BUG_SENSE_API_KEY: @"Fanmento-iOS"}
+    //                                       sendImmediately:NO];
 #endif
 
     [[NetworkUtility getInstance] setDelegate:[[RemoteNetworkUtility alloc] initWithAcceptsHeader:RemoteNetworkUtilityAcceptsJSON]];

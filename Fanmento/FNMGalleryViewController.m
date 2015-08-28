@@ -105,8 +105,9 @@ typedef enum {
 
     self.templatesToDisplay = [[NSMutableArray alloc] init];
 
-    [self createToggleTemplatesBar];
     [self setupTable];
+    [self createToggleTemplatesBar];
+    
     [self updateVenueNames];
     [self setupPullToRefresh];
     [self displayTemplatesWithoutVenue];
@@ -269,7 +270,7 @@ typedef enum {
         [self.currentSelection setImage:[UIImage imageNamed:@"top_menu_CATEGORY_button_down"] forState:UIControlStateSelected];
     }
 
-    self.topBar.userInteractionEnabled = NO;
+    //self.topBar.userInteractionEnabled = NO;
 
     [self checkAndCleanCategoryView];
     [self checkAndCleanUserLocalPicker];
@@ -359,7 +360,7 @@ typedef enum {
 
 - (void)showLocalTemplates:(id)sender
 {
-    [self jugglePreviousSelection:sender];
+    [self jugglePreviousSelection:sender]; //TODO: Causes top bar to stop accepting user input?!
     self.showingLocalTemplates = YES;
 
     if([CLLocationManager locationServicesEnabled]) {
@@ -1161,7 +1162,38 @@ typedef enum {
         [vc setTemplateImage:[(UIImageView *)theTap.view image]];
     }
 
+    
+#if TARGET_IPHONE_SIMULATOR
+    
+    //Simulator
+    [self dismissViewControllerAnimated:NO completion:^{
+        [FNMAppDelegate appDelegate].myCollectionViewController.selectedPicture = [(UIImageView *)theTap.view image];
+        [FNMAppDelegate appDelegate].myCollectionViewController.shareScreenMode = YES;
+        
+        NSDictionary *test = objc_getAssociatedObject([(UIImageView *)theTap.view image], (const void*)0x314);
+        
+        if ([FNMAppDelegate appDelegate].myCollectionViewController.detailViewBackground) {
+            [[FNMAppDelegate appDelegate].myCollectionViewController.detailViewBackground removeFromSuperview];
+            [FNMAppDelegate appDelegate].myCollectionViewController.detailViewBackground = nil;
+        }
+        
+        id backgroundURL = [test objectForKey:@"background"];
+        if (![[NSNull null] isEqual:backgroundURL] && backgroundURL != nil) {
+            [FNMAppDelegate appDelegate].myCollectionViewController.detailViewBackground = [[VILoaderImageView alloc]initWithFrame:CGRectMake(0, 0, 320, screenHeight())
+                                                                                                                          imageUrl:backgroundURL
+                                                                                                                          animated:YES];
+        }
+        
+        [[[FNMAppDelegate appDelegate] tabBarController] setSelectedViewController:[FNMAppDelegate appDelegate].myCollectionViewController];
+    }];
+    
+#else
+    
+    // Device
     [self presentViewController:vc animated:NO completion:nil];
+    
+#endif
+    
 }
 
 #pragma mark - UITableViewDelegate

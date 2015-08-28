@@ -43,6 +43,10 @@
 
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:self.hud];
+    
+    UIColor *color = [UIColor whiteColor];
+    _email.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Email" attributes:@{NSForegroundColorAttributeName: color}];
+    _password.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{NSForegroundColorAttributeName: color}];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -60,6 +64,8 @@
     [self.password setText:@""];
     [self removeNoteObservers];
 }
+
+
 
 #pragma mark Notifications
 - (void)setupNotifications

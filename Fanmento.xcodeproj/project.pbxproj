@@ -151,7 +151,6 @@
 		375DBD6D16666C8500A9D543 /* category_back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 375DBD6B16666C8500A9D543 /* category_back_button.png */; };
 		375DBD6E16666C8500A9D543 /* category_back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 375DBD6C16666C8500A9D543 /* category_back_button@2x.png */; };
 		375DBDCB1666AE8D00A9D543 /* DEStoreKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 375DBDC91666AE8D00A9D543 /* DEStoreKitManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		375DC0221667CA1400A9D543 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375DC0211667CA1400A9D543 /* StoreKit.framework */; };
 		37877AF0164DA87B0007A189 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 37877AEF164DA87B0007A189 /* ODRefreshControl.m */; };
 		37925B9C167B840100C3FF8F /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925B88167B840100C3FF8F /* MKAnnotationView+WebCache.m */; };
 		37925B9D167B840100C3FF8F /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 37925B8A167B840100C3FF8F /* SDImageCache.m */; };
@@ -484,6 +483,7 @@
 		C1ACFD5A15F068BA00E7B824 /* camera_button_over@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1ACFD5615F068BA00E7B824 /* camera_button_over@2x.png */; };
 		C1ACFD5B15F068BA00E7B824 /* camera_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C1ACFD5715F068BA00E7B824 /* camera_button.png */; };
 		C1ACFD5C15F068BA00E7B824 /* camera_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1ACFD5815F068BA00E7B824 /* camera_button@2x.png */; };
+		C1C2835B1B8BF639004476A3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C2835A1B8BF639004476A3 /* StoreKit.framework */; };
 		C1C72B861B4B591700C313A8 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C72B851B4B591700C313A8 /* CoreImage.framework */; };
 		C1CCF8491623B94F00D60032 /* FNMMyCollectionViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CCF8481623B94F00D60032 /* FNMMyCollectionViewControllerTests.m */; };
 		C1E294F416016EAA00B5AF29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E294F316016EAA00B5AF29 /* QuartzCore.framework */; };
@@ -797,7 +797,6 @@
 		375DBD6C16666C8500A9D543 /* category_back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "category_back_button@2x.png"; sourceTree = "<group>"; };
 		375DBDC81666AE8D00A9D543 /* DEStoreKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEStoreKitManager.h; sourceTree = "<group>"; };
 		375DBDC91666AE8D00A9D543 /* DEStoreKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEStoreKitManager.m; sourceTree = "<group>"; };
-		375DC0211667CA1400A9D543 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		37877AEE164DA87B0007A189 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		37877AEF164DA87B0007A189 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		37925B87167B840100C3FF8F /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -1102,6 +1101,7 @@
 		C1ACFD5615F068BA00E7B824 /* camera_button_over@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_button_over@2x.png"; sourceTree = "<group>"; };
 		C1ACFD5715F068BA00E7B824 /* camera_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_button.png; sourceTree = "<group>"; };
 		C1ACFD5815F068BA00E7B824 /* camera_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_button@2x.png"; sourceTree = "<group>"; };
+		C1C2835A1B8BF639004476A3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C1C72B851B4B591700C313A8 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		C1CCF8471623B94F00D60032 /* FNMMyCollectionViewControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNMMyCollectionViewControllerTests.h; sourceTree = "<group>"; };
 		C1CCF8481623B94F00D60032 /* FNMMyCollectionViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNMMyCollectionViewControllerTests.m; sourceTree = "<group>"; };
@@ -1135,7 +1135,6 @@
 				A991CA2B1784773B00B8E30D /* AddressBookUI.framework in Frameworks */,
 				37925BA9167B857C00C3FF8F /* ImageIO.framework in Frameworks */,
 				37925BA7167B855900C3FF8F /* MapKit.framework in Frameworks */,
-				375DC0221667CA1400A9D543 /* StoreKit.framework in Frameworks */,
 				37B9C74A1651A358007B13ED /* AVFoundation.framework in Frameworks */,
 				37B9C7481651A332007B13ED /* CoreMedia.framework in Frameworks */,
 				37B9C7461651A318007B13ED /* CoreVideo.framework in Frameworks */,
@@ -1151,6 +1150,7 @@
 				C1E294F416016EAA00B5AF29 /* QuartzCore.framework in Frameworks */,
 				C14016CB15EE8A20009D375D /* libsqlite3.0.dylib in Frameworks */,
 				C14016C915EE89D6009D375D /* CFNetwork.framework in Frameworks */,
+				C1C2835B1B8BF639004476A3 /* StoreKit.framework in Frameworks */,
 				C140166C15EE6921009D375D /* CoreData.framework in Frameworks */,
 				A991CA25178476FC00B8E30D /* libFujifilm.SPA.MobileWeb.a in Frameworks */,
 			);
@@ -1958,6 +1958,7 @@
 		C110FD4615EDAC8E004C7E46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1C2835A1B8BF639004476A3 /* StoreKit.framework */,
 				C1C72B851B4B591700C313A8 /* CoreImage.framework */,
 				C183CAB81B48972800371E5E /* WalgreensQPSDK.framework */,
 				372E7BBC160B807600B63A6E /* Accounts.framework */,
@@ -1984,7 +1985,6 @@
 				C1E294F316016EAA00B5AF29 /* QuartzCore.framework */,
 				37269F721631C6FA00325E20 /* Security.framework */,
 				C110FD7015EDAC8E004C7E46 /* SenTestingKit.framework */,
-				375DC0211667CA1400A9D543 /* StoreKit.framework */,
 				C14016CD15EE9058009D375D /* SystemConfiguration.framework */,
 				372E7BB8160B802E00B63A6E /* Twitter.framework */,
 				C110FD4715EDAC8E004C7E46 /* UIKit.framework */,
@@ -2300,6 +2300,9 @@
 					C110FD4215EDAC8E004C7E46 = {
 						DevelopmentTeam = 435KALF4P3;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -3004,7 +3007,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Fanmento;
-				PROVISIONING_PROFILE = "1f8a23d3-b2b3-43ec-accb-8d4adb84d666";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Ad Hoc";
@@ -3124,7 +3127,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Fanmento;
-				PROVISIONING_PROFILE = "1f8a23d3-b2b3-43ec-accb-8d4adb84d666";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3154,7 +3157,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = Fanmento;
-				PROVISIONING_PROFILE = "1f8a23d3-b2b3-43ec-accb-8d4adb84d666";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

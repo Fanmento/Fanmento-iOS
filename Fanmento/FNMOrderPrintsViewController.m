@@ -94,6 +94,18 @@
     if(! myCollectionDownloaded) {
         [self downloadMyCollection];
     }
+    
+    //Block for success response
+    void (^successBlock)(NSString *) = ^(NSString *responseString)
+    {
+        [self initSuccessResponse:responseString];
+    };
+    
+    //Block for Failure response
+    void (^faiureBlock)(NSError *) = ^(NSError *errorObject)
+    {
+        [self didInitFailWithError:errorObject];
+    };
 
     if(self.walgreensCheckoutContext == nil) {
         self.walgreensCheckoutContext = [[WalgreensQPSDK alloc] initWithAffliateId:WALGREENS_CHECKOUT_ACCESS_KEY
@@ -102,7 +114,7 @@
                                                                              appVersion:WALGREENS_APP_VERSION
                                                                          ProductGroupID:WALGREENS_PRODUCT_GROUP_ID
                                                                             PublisherID:WALGREENS_PUBLISHER_ID
-                                         success:nil failure:nil];
+                                         success:successBlock failure:faiureBlock];
         self.walgreensCheckoutContext.delegate = self;
     }
 }
@@ -380,6 +392,18 @@
 -(void)imageuploadSuccessWithImageData:(WAGImageData *)imageData
 {
     DLog(@"WAG: Succesful Image Upload");
+    
+    //Block for success response
+    void (^successBlock)(NSString *) = ^(NSString *responseString)
+    {
+        [self cartPosterSuccessResponse:responseString];
+    };
+    
+    //Block for Failure response
+    void (^faiureBlock)(NSError *) = ^(NSError *errorObject)
+    {
+        [self didCartPostFailWithError:errorObject];
+    };
 
     self.assetsUploaded++;
     [self.imagesToUpload removeObjectAtIndex:0];
@@ -393,7 +417,7 @@
         if(self.walgreensAffiliateNotes.length > 0) {
             [self.walgreensCheckoutContext setAffNotes:self.walgreensAffiliateNotes];
         }
-        [self.walgreensCheckoutContext postCart:nil failure:nil];
+        [self.walgreensCheckoutContext postCart:successBlock failure:faiureBlock];
     } else {
         [self.walgreensCheckoutContext upload:[self.imagesToUpload objectAtIndex:0] progressBlock:nil successBlock:nil failureBlock:nil];
     }

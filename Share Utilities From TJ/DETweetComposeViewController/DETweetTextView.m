@@ -79,7 +79,7 @@
     _ruledView = [[DERuledView alloc] initWithFrame:[self ruledViewFrame]];
     _ruledView.lineColor = [UIColor colorWithWhite:0.5f alpha:0.15f];
     _ruledView.lineWidth = 1.0f;
-    _ruledView.rowHeight = self.font.lineHeight;
+    _ruledView.rowHeight = 0.0f;//self.font.lineHeight;
     [self insertSubview:self.ruledView atIndex:0];
 }
 

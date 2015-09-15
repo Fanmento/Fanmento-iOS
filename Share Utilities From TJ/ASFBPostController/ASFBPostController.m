@@ -182,12 +182,12 @@
             tv.backgroundColor = [UIColor colorWithHex:0xefefef];
             self.textView = tv;
             
-            [tv setText:nil];
-            /*if (self.shareDefaulText != nil) {
+            //[tv setText:nil];
+            if (self.shareDefaulText != nil) {
                 [tv setText:self.shareDefaulText];
             }else{
                 [tv setText:@"Check out my Fanmento photo!"];
-            }*/
+            }
             
             [tv release];
         }else{

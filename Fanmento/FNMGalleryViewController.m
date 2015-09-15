@@ -146,6 +146,10 @@ typedef enum {
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
         _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+        
+        if ([_locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [_locationManager requestWhenInUseAuthorization];
+        }
     }
 
     return _locationManager;
@@ -364,7 +368,7 @@ typedef enum {
     self.showingLocalTemplates = YES;
 
     if([CLLocationManager locationServicesEnabled]) {
-        if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized) {
+        if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
             self.tableView.contentOffset = CGPointZero;
             [self.tableView slideOutTo:kFTAnimationBottom
                               duration:.4
@@ -443,7 +447,7 @@ typedef enum {
         }
     }
 
-    DLog(@"Number of templates to display: %d", [self.templatesToDisplay count]);
+    DLog(@"Number of templates to display: %lu", (unsigned long)[self.templatesToDisplay count]);
 }
 
 # pragma mark - All View
@@ -760,6 +764,7 @@ typedef enum {
         self.picker.delegate = self;
         self.picker.dataSource = self;
         self.picker.frame = CGRectMake(0, self.pickerView.frame.size.height-self.topBar.frame.size.height-216, 320, 216);
+        self.picker.backgroundColor = [UIColor whiteColor];
         [self.pickerView addSubview:self.picker];
 
         self.doneBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.picker.frame.origin.y-36, 320, 36)];
@@ -770,6 +775,7 @@ typedef enum {
                                                                        style:UIBarButtonItemStyleDone
                                                                       target:self
                                                                       action:@selector(pickerDoneClicked:)];
+        doneButton.tintColor = [UIColor whiteColor];
 
         UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                                 target:nil
@@ -779,6 +785,7 @@ typedef enum {
                                                                          style:UIBarButtonItemStyleBordered
                                                                         target:self
                                                                         action:@selector(hideVenuePicker)];
+        cancelButton.tintColor = [UIColor whiteColor];
 
         [self.doneBar setItems:@[cancelButton, spacer, doneButton]];
 
@@ -1344,8 +1351,8 @@ typedef enum {
 
 - (void)cancelCell:(UITableViewCell*)cell
 {
-    [(VILoaderImageView *)[cell viewWithTag:2] cancelCurrentImageLoad];
-    [(VILoaderImageView *)[cell viewWithTag:1] cancelCurrentImageLoad];
+    [(VILoaderImageView *)[cell viewWithTag:2] sd_cancelCurrentImageLoad];
+    [(VILoaderImageView *)[cell viewWithTag:1] sd_cancelCurrentImageLoad];
 }
 
 - (UITableViewCell *)createLoadingCellForTableView:(UITableView *)tableView
@@ -1354,6 +1361,12 @@ typedef enum {
     UITableViewCell *loadingCell = [tableView dequeueReusableCellWithIdentifier:loadingCellIdentifier];
     if(loadingCell == nil) {
         loadingCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadingCellIdentifier];
+        
+        UIImageView *backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Fanmento_Grey_Background"]];
+        [loadingCell.contentView addSubview:backgroundImageView];
+        //[self.view addSubview:backgroundImageView];
+        //backgroundImageView.frame = CGRectMake(0,0,320,screenHeight()-30);
+        loadingCell.contentView.backgroundColor = [UIColor clearColor];
 
         UIActivityIndicatorView *loadingActivityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         loadingActivityIndicator.color = [UIColor orangeColor];
@@ -1368,7 +1381,7 @@ typedef enum {
             [(UIActivityIndicatorView *)obj startAnimating];
         }
     }];
-
+    
     return loadingCell;
 }
 

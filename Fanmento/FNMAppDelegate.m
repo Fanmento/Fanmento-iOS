@@ -170,6 +170,8 @@ static const NSInteger kGANDispatchPeriodSec = 10;
     [tabBarItem setEnabled:NO];
 
     [self.tabBarController addCenterButtonWithImage:[UIImage imageNamed:@"middle_finger_button"] highlightImage:nil];
+    
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
 - (void)teardownTabBarController

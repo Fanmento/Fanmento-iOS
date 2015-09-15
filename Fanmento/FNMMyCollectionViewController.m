@@ -749,8 +749,21 @@
 - (void)imageuploadSuccessWithImageData:(WAGImageData *)imageData
 {
     DLog(@"WAG: Succesful Image Upload");
+    
+    //Block for success response
+    void (^successBlock)(NSString *) = ^(NSString *responseString)
+    {
+        [self cartPosterSuccessResponse:responseString];
+    };
+    
+    //Block for Failure response
+    void (^faiureBlock)(NSError *) = ^(NSError *errorObject)
+    {
+        [self didCartPostFailWithError:errorObject];
+    };
+    
     self.hud.labelText = @"Upload Successful";
-    [self.walgreensCheckoutContext postCart:nil failure:nil];
+    [self.walgreensCheckoutContext postCart:successBlock failure:faiureBlock];
 }
 
 - (void)imageuploadErrorWithImageData:(WAGImageData *)imageData  Error:(NSError *)error

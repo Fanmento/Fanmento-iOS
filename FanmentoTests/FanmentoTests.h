@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 VOKAL. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "UIAutomation.h"
 
-@interface FanmentoTests : SenTestCase
+@interface FanmentoTests : XCTestCase
 + (BOOL) waitForCompletion:(NSTimeInterval)timeoutSecs;
 + (BOOL) doesActionViewExist;
 + (void) dismissAlertViews;

@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 VOKAL. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "FanmentoTests.h"
 #import "FNMAppDelegate.h"
 
-@interface FNMTabBarTests : SenTestCase {
+@interface FNMTabBarTests : XCTestCase {
     FNMAppDelegate *appDelegate;
 }
 

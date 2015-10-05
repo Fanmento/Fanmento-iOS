@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 VOKAL. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "FanmentoTests.h"
 #import "FNMAppDelegate.h"
 #import "FNMMyCollectionViewController.h"
 #import "FNMWalgreensAPITest.h"
 
-@interface FNMMyCollectionViewControllerTests : SenTestCase <FNMWalgreensAPITestDelegate>
+@interface FNMMyCollectionViewControllerTests : XCTestCase <FNMWalgreensAPITestDelegate>
 {
     FNMAppDelegate *appDelegate;
     //FNMMyCollectionViewController *myCollectionViewController;

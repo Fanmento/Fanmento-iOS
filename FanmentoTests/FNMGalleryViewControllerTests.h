@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 VOKAL. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "FanmentoTests.h"
 #import "FNMAppDelegate.h"
 #import "FNMGalleryViewController.h"
 
-@interface FNMGalleryViewControllerTests : SenTestCase {
+@interface FNMGalleryViewControllerTests : XCTestCase {
     FNMAppDelegate *appDelegate;
     FNMGalleryViewController *galleryViewController;
 }

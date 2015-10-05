@@ -327,7 +327,6 @@
 		C110FD5815EDAC8E004C7E46 /* FNMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C110FD5715EDAC8E004C7E46 /* FNMAppDelegate.m */; };
 		C110FD5E15EDAC8E004C7E46 /* FNMMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C110FD5D15EDAC8E004C7E46 /* FNMMyCollectionViewController.m */; };
 		C110FD6515EDAC8E004C7E46 /* FNMGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C110FD6415EDAC8E004C7E46 /* FNMGalleryViewController.m */; };
-		C110FD7115EDAC8E004C7E46 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110FD7015EDAC8E004C7E46 /* SenTestingKit.framework */; };
 		C110FD7215EDAC8E004C7E46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110FD4715EDAC8E004C7E46 /* UIKit.framework */; };
 		C110FD7315EDAC8E004C7E46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C110FD4915EDAC8E004C7E46 /* Foundation.framework */; };
 		C110FD7B15EDAC8E004C7E46 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C110FD7915EDAC8E004C7E46 /* InfoPlist.strings */; };
@@ -1012,8 +1011,7 @@
 		C110FD5D15EDAC8E004C7E46 /* FNMMyCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FNMMyCollectionViewController.m; sourceTree = "<group>"; };
 		C110FD6315EDAC8E004C7E46 /* FNMGalleryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FNMGalleryViewController.h; sourceTree = "<group>"; };
 		C110FD6415EDAC8E004C7E46 /* FNMGalleryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FNMGalleryViewController.m; sourceTree = "<group>"; };
-		C110FD6F15EDAC8E004C7E46 /* FanmentoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FanmentoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C110FD7015EDAC8E004C7E46 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		C110FD6F15EDAC8E004C7E46 /* FanmentoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FanmentoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C110FD7815EDAC8E004C7E46 /* FanmentoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FanmentoTests-Info.plist"; sourceTree = "<group>"; };
 		C110FD7A15EDAC8E004C7E46 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C110FD7C15EDAC8E004C7E46 /* FanmentoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FanmentoTests.h; sourceTree = "<group>"; };
@@ -1172,7 +1170,6 @@
 				C11BE0691604B48A00579496 /* SystemConfiguration.framework in Frameworks */,
 				C11BE0681604B47E00579496 /* libz.dylib in Frameworks */,
 				C11BE0661604B43700579496 /* QuartzCore.framework in Frameworks */,
-				C110FD7115EDAC8E004C7E46 /* SenTestingKit.framework in Frameworks */,
 				C110FD7215EDAC8E004C7E46 /* UIKit.framework in Frameworks */,
 				C110FD7315EDAC8E004C7E46 /* Foundation.framework in Frameworks */,
 			);
@@ -1950,7 +1947,7 @@
 			isa = PBXGroup;
 			children = (
 				C110FD4315EDAC8E004C7E46 /* Fanmento.app */,
-				C110FD6F15EDAC8E004C7E46 /* FanmentoTests.octest */,
+				C110FD6F15EDAC8E004C7E46 /* FanmentoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1984,7 +1981,6 @@
 				37B9C7411651A2B7007B13ED /* OpenGLES.framework */,
 				C1E294F316016EAA00B5AF29 /* QuartzCore.framework */,
 				37269F721631C6FA00325E20 /* Security.framework */,
-				C110FD7015EDAC8E004C7E46 /* SenTestingKit.framework */,
 				C14016CD15EE9058009D375D /* SystemConfiguration.framework */,
 				372E7BB8160B802E00B63A6E /* Twitter.framework */,
 				C110FD4715EDAC8E004C7E46 /* UIKit.framework */,
@@ -2284,8 +2280,8 @@
 			);
 			name = FanmentoTests;
 			productName = FanmentoTests;
-			productReference = C110FD6F15EDAC8E004C7E46 /* FanmentoTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = C110FD6F15EDAC8E004C7E46 /* FanmentoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -2294,6 +2290,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FNM;
+				LastTestingUpgradeCheck = 0700;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = VOKAL;
 				TargetAttributes = {
@@ -2986,8 +2983,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Fanmento/Fanmento.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dean Andreakis (97QXDB3QP7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dean Andreakis (97QXDB3QP7)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -3007,7 +3005,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Fanmento;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1f8a23d3-b2b3-43ec-accb-8d4adb84d666";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Ad Hoc";
@@ -3019,6 +3017,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fanmento/Fanmento-Prefix.pch";
@@ -3029,7 +3028,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = "Ad Hoc";
 		};
@@ -3107,8 +3105,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Fanmento/Fanmento.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dean Andreakis (97QXDB3QP7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dean Andreakis (97QXDB3QP7)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -3127,7 +3126,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Fanmento;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1f8a23d3-b2b3-43ec-accb-8d4adb84d666";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3136,8 +3135,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Fanmento/Fanmento.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dean Andreakis (97QXDB3QP7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dean Andreakis (97QXDB3QP7)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -3157,7 +3157,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = Fanmento;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1f8a23d3-b2b3-43ec-accb-8d4adb84d666";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3170,6 +3170,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fanmento/Fanmento-Prefix.pch";
@@ -3180,7 +3181,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -3192,6 +3192,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fanmento/Fanmento-Prefix.pch";
@@ -3202,7 +3203,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};
